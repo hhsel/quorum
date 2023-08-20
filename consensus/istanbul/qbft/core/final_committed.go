@@ -16,9 +16,15 @@
 
 package core
 
-import "github.com/ethereum/go-ethereum/common"
+import (
+	"time"
+
+	"github.com/ethereum/go-ethereum/common"
+)
 
 func (c *core) handleFinalCommitted() error {
+	// this delays current sequence, round, and proposer information
+	time.Sleep(300 * time.Millisecond)
 	c.currentLogger(true, nil).Info("QBFT: handle final committed")
 
 	// Stopping the timer, so that round changes do not happen

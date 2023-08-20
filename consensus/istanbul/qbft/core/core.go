@@ -103,6 +103,8 @@ func (c *core) currentView() *istanbul.View {
 }
 
 func (c *core) IsProposer() bool {
+	// this delays determining the node is the proposer
+	time.Sleep(500 * time.Millisecond)
 	v := c.valSet
 	if v == nil {
 		return false
